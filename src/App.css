@@ -1,42 +1,97 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body,
+html {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-variation-settings: "wdth" 100;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ContainerThing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -70px;
+  height: 110vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.Profile {
+  background-color: #171819af;
+  background-size: cover;
+  background-position-x: -100px;
+  border-radius: 5px;
+  width: 500px;
+  height: 240px;
+  color: #ffffff;
 }
 
-.card {
-  padding: 2em;
+.pfp {
+  border-radius: 50%;
+  width: 100px;
 }
 
-.read-the-docs {
-  color: #888;
+.name {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.name.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.madeby {
+  position: relative;
+  top: 200px;
+}
+
+.dc {
+  color: #363636;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.desc {
+  font-size: 17px;
+}
+
+.eclipsewtf {
+  text-decoration: none;
+  color: #9cace9;
+  cursor: pointer;
+}
+
+.pfp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.icon {
+  font-size: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
