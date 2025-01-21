@@ -36,8 +36,8 @@ html {
   background-size: cover;
   background-position-x: -100px;
   border-radius: 5px;
-  width: 500px;
-  height: 240px;
+  width: 550px;
+  height: 300px;
   color: #ffffff;
 }
 
@@ -94,4 +94,59 @@ html {
   font-size: 40px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+}
+
+.audiospurfr {
+  width: 300px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5%;
+  border: #363636 2px solid;
+  background-color: #3636365b;
+  position: relative;
+}
+
+.fa-play,
+.fa-pause {
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  left: 5px;
+  top: 1px;
+}
+
+.progress-bar-container {
+  width: 250px;
+  height: 4px;
+  background-color: #ffffff50;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  left: 10px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.1s linear;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: left 0.1s linear;
 }

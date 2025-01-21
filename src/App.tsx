@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import engine from "./assets/engine.mp4";
 import wallace from "./assets/wallace.gif";
+import nicemusic from "./assets/magichardcoreeee.m4a";
+
+/*
+* Movie name: Snowpiercer (2013) 
+* Song name: Magic Way.
+*/
 
 function App() {
   const [name, setName] = useState("not_secret1337");
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef: any = useRef(null);
+  const dotRef: any = useRef(null);
+  const progressRef: any = useRef(null);
   const speed = 250;
 
   const handleMouseEnter = () => {
@@ -22,6 +32,22 @@ function App() {
       setName("not_secret1337");
       setIsAnimating(false);
     }, speed);
+  };
+
+  const togglePlay = () => {
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const updateProgress = () => {
+    const progress =
+      (audioRef.current.currentTime / audioRef.current.duration) * 100;
+    progressRef.current.style.width = `${progress}%`;
   };
 
   return (
@@ -62,6 +88,22 @@ function App() {
               </a>{" "}
               a private server for Season 3.
             </p>
+            <div className="audiospurfr">
+              <div onClick={togglePlay}>
+                <i
+                  className={`fa-solid ${isPlaying ? "fa-pause" : "fa-play"}`}
+                />
+              </div>
+              <div className="progress-bar-container">
+                <div className="progress-bar" ref={progressRef} />
+                <div className="progress-dot" ref={dotRef} />
+              </div>
+              <audio
+                ref={audioRef}
+                onTimeUpdate={updateProgress}
+                src={nicemusic}
+              />
+            </div>
           </div>
         </div>
       </center>
